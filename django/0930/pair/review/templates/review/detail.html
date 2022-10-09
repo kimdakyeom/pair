@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container" style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 9%); border-radius: 15px; ">
+  <div class="my-5 p-5">
+    <h1 class="text-center">상세 리뷰</h1>
+    <form action="{% url 'review:update' review_id.pk %}">
+      <div class="mb-3">
+        <p>제목</p>
+        <p>{{review_id.title}}</p>
+      </div>
+      <hr>
+      <div class="mb-3">
+        <p>내용</p>
+        <p>{{ review_id.content }}</p>
+      </div>
+      <div class="mt-4 text-end">
+        <button type="button" class="btn btn-outline-secondary"
+          onclick="location.href='{% url 'review:index' %}' ">목록으로</button>
+        <button type="button" class="btn btn-secondary "
+          onclick="location.href='{% url 'review:edit' review_id.pk %}' ">리뷰
+          수정하러 가기</button>
+        <button type="button" class="btn btn-outline-secondary "
+          onclick="location.href='{% url 'review:delete' review_id.pk %}' ">리뷰 삭제</button>
+      </div>
+  </div>
+  </form>
+
+</div>
+</div>
+{% endblock %}

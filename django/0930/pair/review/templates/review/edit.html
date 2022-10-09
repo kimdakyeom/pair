@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container" style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 9%); border-radius: 15px; ">
+  <div class="my-5 p-5">
+    <h1 class="text-center">리뷰 수정</h1>
+    <form action="{% url 'review:update' review_id.pk %}">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">제목</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="title" required
+          value="{{review_id.title}}" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">내용</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"
+          required>{{ review_id.content }}</textarea>
+        <div class="mt-4 text-end">
+          <button type="button" class="btn btn-outline-secondary"
+            onclick="location.href='{% url 'review:index' %}' ">목록으로</button>
+          <button class="btn btn-secondary" type="submit">리뷰 수정</button>
+          <button type="button" class="btn btn-outline-secondary"
+            onclick="location.href='{% url 'review:index' %}' ">취소</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
