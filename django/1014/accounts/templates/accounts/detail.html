@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>회원 id: {{ user.username }}</p>
+<p>회원 이메일: {{ user.email }}</p>
+<p>회원 이름: {{ user.last_name }}{{ user.first_name }}</p>
+<p>가입 시간: {{ user.date_joined }}</p>
+
+{% if user == request.user %}
+<a href="{% url 'accounts:update' %}" class="btn btn-dark">수정</a>
+<a href="{% url 'accounts:delete' %}" class="btn btn-dark">탈퇴</a>
+{% endif %}
+{% endblock %}
